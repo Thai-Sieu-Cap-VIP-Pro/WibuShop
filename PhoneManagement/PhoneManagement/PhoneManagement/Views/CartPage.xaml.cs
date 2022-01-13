@@ -16,5 +16,15 @@ namespace PhoneManagement.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NewAddressPage());
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CheckoutPage());
+        }
     }
 }

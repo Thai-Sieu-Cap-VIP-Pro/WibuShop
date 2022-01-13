@@ -83,13 +83,7 @@ namespace PhoneManagement.ViewModels
         {
             HttpClient http = new HttpClient();
             var oke = await http.GetStringAsync("http://192.168.0.106/webapidemo/api/CartController/AddToCart?accountID=1" + "&pID=" + pID);
-            //bool succeed = false;
-            //Boolean.TryParse(oke, out succeed);
-            //if (succeed)
-            //{
-
-            //}
-            await Application.Current.MainPage.DisplayAlert("Thong bao", "Them san pham vao gio hang thanh cong", "OK");
+            await Application.Current.MainPage.DisplayAlert("Thông báo", "Thêm sản phẩm vào giỏ hàng thành công!", "OK");
         }
 
         async void GetAllProducts()
@@ -124,8 +118,6 @@ namespace PhoneManagement.ViewModels
             var allProducts = JsonConvert.DeserializeObject<List<Product>>(data);
             AllProducts1 = new ObservableCollection<Product>();
             AllProducts2 = new ObservableCollection<Product>();
-            //AllProducts1.Clear();
-            //AllProducts2.Clear();
             for (int i = 0; i < allProducts.Count; i++)
             {
                 if (i % 2 == 0)
@@ -147,8 +139,6 @@ namespace PhoneManagement.ViewModels
             var allProducts = JsonConvert.DeserializeObject<List<Product>>(data);
             AllProducts1 = new ObservableCollection<Product>();
             AllProducts2 = new ObservableCollection<Product>();
-            //AllProducts1.Clear();
-            //AllProducts2.Clear();
             for (int i = 0; i < allProducts.Count; i++)
             {
                 if (i % 2 == 0)
@@ -165,11 +155,10 @@ namespace PhoneManagement.ViewModels
         public ProductViewModel()
         {
             GetProduct();
-            //AllProducts = new ObservableCollection<Product>();
             AllProducts1 = new ObservableCollection<Product>();
             AllProducts2 = new ObservableCollection<Product>();
             GetAllProducts();
-            //AddToCart = new Command<string>(AddToCartFunc);
+            AddToCart = new Command<string>(AddToCartFunc);
             ShowCategoryProductCommand = new Command(ShowCategoryProduct);
             SearchProductCommand = new Command(SearchProduct);
         }

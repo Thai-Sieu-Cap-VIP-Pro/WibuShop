@@ -9,7 +9,7 @@
              x:Class="PhoneManagement.Views.ProductDetailPage"
              Title="Chi tiết sản phẩm">
     <ContentPage.BindingContext>
-        <viewmodel:ProductViewModel />
+        <viewmodel:ProductViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary">
@@ -26,28 +26,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="0">
-
-                <!--<CarouselView x:Name="banner">
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Frame HasShadow="True"
-                                       BorderColor="DarkGray"
-                                       CornerRadius="5"
-                                       Margin="20"
-                                       HeightRequest="300"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="CenterAndExpand">
-                                    <Image Source="{Binding imageList}"/>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>-->
                 <StackLayout Margin="0,20,0,0">
-                    <Image Source="{Binding ProductImg}" HeightRequest="250" WidthRequest="100" x:Name="image"/> 
+                    <Image Source="{Binding ProductImg}" HeightRequest="250" WidthRequest="100" x:Name="image"/>
                 </StackLayout>
-             
                 <StackLayout Padding="20, 20, 20, 20"  BackgroundColor="White">
                     <Label Text="{Binding ProductName}" FontSize="Medium" TextColor="Black" FontAttributes="Bold" x:Name="name" />
                     <StackLayout Orientation="Horizontal">
