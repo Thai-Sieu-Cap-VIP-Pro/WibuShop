@@ -82,7 +82,7 @@ namespace PhoneManagement.ViewModels
         async void AddToCartFunc(string pID)
         {
             HttpClient http = new HttpClient();
-            var oke = await http.GetStringAsync("http://192.168.0.106/webapidemo/api/CartController/AddToCart?accountID=1" + "&pID=" + pID);
+            var oke = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/AddToCart?accountID=1" + "&pID=" + pID);
             await Application.Current.MainPage.DisplayAlert("Thông báo", "Thêm sản phẩm vào giỏ hàng thành công!", "OK");
         }
 

@@ -79,7 +79,7 @@ namespace PhoneManagement.ViewModels
         async void GetCart()
         {
             HttpClient http = new HttpClient();
-            var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/CartController/GetCart?accountID=1");
+            var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/GetCart?accountID=1");
             var listConvert = JsonConvert.DeserializeObject<List<Cart>>(list);
             CART = new Cart();
             if (listConvert.Count > 0)
@@ -88,20 +88,20 @@ namespace PhoneManagement.ViewModels
             }
             //else
             //{
-            //    await http.GetStringAsync("http://192.168.1.5/webapidemo/api/CartController/CreateCart?accountID=1");
+            //    await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/CreateCart?accountID=1");
             //}
         }
 
         async void RenderCartPage()
         {
             HttpClient http = new HttpClient();
-            var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/CartController/GetCartDetail?accountID=1");
+            var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/GetCartDetail?accountID=1");
             var listConvert = JsonConvert.DeserializeObject<List<CartDetail>>(list);
             CARTPRODUCTS = new ObservableCollection<CartProduct>();
             for (int i = 0; i < listConvert.Count; i++)
             {
                 var pID = listConvert[i].ProductID;
-                var product = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/ProductController/GetProductWithID?id=" + pID);
+                var product = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/ProductController/GetProductWithID?id=" + pID);
                 var productConvert = JsonConvert.DeserializeObject<List<Product>>(product);
                 CartProduct temp = new CartProduct
                 {
@@ -130,7 +130,7 @@ namespace PhoneManagement.ViewModels
                     CARTPRODUCTS[i].PRODUCTQUANITY++;
                     CART.CartTotal += int.Parse(CARTPRODUCTS[i].PRODUCTPRICE.ToString());
                     HttpClient http = new HttpClient();
-                    var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/CartController/UpdateCart?cartID=" + CART.CartID + "&total=" + CART.CartTotal + "&cartDetailID=" + CARTPRODUCTS[i].CARTDETAILID + "&quanity=" + CARTPRODUCTS[i].PRODUCTQUANITY);
+                    var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/UpdateCart?cartID=" + CART.CartID + "&total=" + CART.CartTotal + "&cartDetailID=" + CARTPRODUCTS[i].CARTDETAILID + "&quanity=" + CARTPRODUCTS[i].PRODUCTQUANITY);
                 }
             }
 
@@ -147,14 +147,14 @@ namespace PhoneManagement.ViewModels
                     {
                         CART.CartTotal -= int.Parse(CARTPRODUCTS[i].PRODUCTPRICE.ToString());
 
-                        var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/CartController/DeleteProductInCart?pID=" + CARTPRODUCTS[i].PRODUCTID + "&cartDetailID=" + CARTPRODUCTS[i].CARTDETAILID + "&total=" + CART.CartTotal + "&cartID=" + CART.CartID);
+                        var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/DeleteProductInCart?pID=" + CARTPRODUCTS[i].PRODUCTID + "&cartDetailID=" + CARTPRODUCTS[i].CARTDETAILID + "&total=" + CART.CartTotal + "&cartID=" + CART.CartID);
                         CARTPRODUCTS.Remove(CARTPRODUCTS[i]);
                     }
                     else
                     {
                         CARTPRODUCTS[i].PRODUCTQUANITY--;
                         CART.CartTotal -= int.Parse(CARTPRODUCTS[i].PRODUCTPRICE.ToString());
-                        var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/CartController/UpdateCart?cartID=" + CART.CartID + "&total=" + CART.CartTotal + "&cartDetailID=" + CARTPRODUCTS[i].CARTDETAILID + "&quanity=" + CARTPRODUCTS[i].PRODUCTQUANITY);
+                        var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/CartController/UpdateCart?cartID=" + CART.CartID + "&total=" + CART.CartTotal + "&cartDetailID=" + CARTPRODUCTS[i].CARTDETAILID + "&quanity=" + CARTPRODUCTS[i].PRODUCTQUANITY);
                     }
                 }
             }
@@ -162,7 +162,7 @@ namespace PhoneManagement.ViewModels
         async void GetShipping()
         {
             HttpClient http = new HttpClient();
-            var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/ShippingController/GetListShipping?accountID=1");
+            var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/ShippingController/GetListShipping?accountID=1");
             var listConvert = JsonConvert.DeserializeObject<List<Shipping>>(list);
             LISTADDRESS = new ObservableCollection<Shipping>();
             for (int i = 0; i < listConvert.Count; i++)
@@ -185,15 +185,16 @@ namespace PhoneManagement.ViewModels
             HttpClient http = new HttpClient();
             string json = JsonConvert.SerializeObject(newShipping);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            var list = await http.PostAsync("http://192.168.1.5/webapidemo/api/ShippingController/AddNewAddress", content);
+            var list = await http.PostAsync("http://www.wjbu-project.somee.com/api/ShippingController/AddNewAddress", content);
             await Application.Current.MainPage.DisplayAlert("Thong bao", "Them dia chi moi thanh cong", "OK");
+            await Application.Current.MainPage.Navigation.PushAsync(new CartPage());
         }
 
         public ICommand Checkout { get; set; }
-        async void CheckoutFunc(object note)
+        async void CheckoutFunc(string[] note)
         {
             HttpClient http = new HttpClient();
-            var list = await http.GetStringAsync("http://192.168.1.5/webapidemo/api/OrderController/Checkout?accountID=1" + "&cartID=" + CART.CartID + "&shippingID=1" + "&orderNote=" + note.ToString());
+            var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/OrderController/Checkout?accountID=1" + "&cartID=" + CART.CartID + "&shippingID=" + note[1] + "&orderNote=" + note[0]);
             await Application.Current.MainPage.DisplayAlert("Thông báo", "Đặt hàng thành công", "OK");
             await Application.Current.MainPage.Navigation.PushAsync(new HomePage());
         }
@@ -206,7 +207,7 @@ namespace PhoneManagement.ViewModels
             minusCommand = new Command(minusFunc);
             LISTADDRESS = new ObservableCollection<Shipping>();
             AddNewAddress = new Command<string[]>(AddNewAddressFunc);
-            Checkout = new Command(CheckoutFunc);
+            Checkout = new Command<string[]>(CheckoutFunc);
             GetShipping();
         }
     }

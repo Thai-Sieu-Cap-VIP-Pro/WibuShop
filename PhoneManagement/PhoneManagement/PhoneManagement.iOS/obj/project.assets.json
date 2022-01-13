@@ -1253,24 +1253,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\THAI\\.nuget\\packages\\": {},
+    "C:\\Users\\khong\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
+      "projectUniqueName": "E:\\Data\\Khang\\Learning\\Wibu\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
       "projectName": "PhoneManagement.iOS",
-      "projectPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
-      "packagesPath": "C:\\Users\\THAI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\obj\\",
+      "projectPath": "E:\\Data\\Khang\\Learning\\Wibu\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
+      "packagesPath": "C:\\Users\\khong\\.nuget\\packages\\",
+      "outputPath": "E:\\Data\\Khang\\Learning\\Wibu\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\THAI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\khong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1284,8 +1284,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj": {
-              "projectPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj"
+            "E:\\Data\\Khang\\Learning\\Wibu\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj": {
+              "projectPath": "E:\\Data\\Khang\\Learning\\Wibu\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj"
             }
           }
         }
