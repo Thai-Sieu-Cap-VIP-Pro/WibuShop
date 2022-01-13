@@ -29,16 +29,6 @@ namespace PhoneManagement.ViewModels
                 OnPropertyChanged("INFO");
             }
         }
-        //async void CheckUserByName()
-        //{
-        //    HttpClient http = new HttpClient();
-        //    var chuoi = await http.GetStringAsync("");
-        //    var Users = JsonConvert.DeserializeObject<List<ProfileModel>>(chuoi);
-        //    for (int i = 0; i < Users.Count; i++)
-        //    {
-        //        User = Users[i];
-        //    }
-        //}
 
         public ICommand LoginCommand { get; set; }
         async void CheckLoginFunction(string[] arr)

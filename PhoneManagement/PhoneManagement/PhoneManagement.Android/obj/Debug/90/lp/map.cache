@@ -1,4 +1,8 @@
 FormsViewGroup
+<<<<<<< HEAD
+=======
+Rg.Plugins.Popup
+>>>>>>> fa20b6249680db224123a162da5d311d7717b4ed
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime
 Xamarin.Android.Arch.Lifecycle.Common

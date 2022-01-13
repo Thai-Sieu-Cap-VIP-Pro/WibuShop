@@ -14,6 +14,6 @@
             <Button x:Name="Profile" Text="Thông tin cá nhân" BackgroundColor="WhiteSmoke" />
             <Button x:Name="loginBtn" Clicked="loginBtn_Clicked" Text="Login" BackgroundColor="WhiteSmoke" />
             <Button x:Name="registerBtn" Clicked="registerBtn_Clicked" Text="Register" BackgroundColor="WhiteSmoke" />
-        </StackLayout>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>

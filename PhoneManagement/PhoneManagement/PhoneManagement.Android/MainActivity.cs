@@ -18,7 +18,11 @@ namespace PhoneManagement.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+<<<<<<< HEAD
 
+=======
+            Rg.Plugins.Popup.Popup.Init(this);
+>>>>>>> fa20b6249680db224123a162da5d311d7717b4ed
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

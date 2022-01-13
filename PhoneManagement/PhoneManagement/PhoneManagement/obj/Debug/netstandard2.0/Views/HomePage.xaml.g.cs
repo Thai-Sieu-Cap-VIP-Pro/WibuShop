@@ -8,17 +8,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("PhoneManagement.Views.HomePage.xaml", "Views/HomePage.xaml", typeof(global::PhoneManagement.Views.HomePage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("PhoneManagement.Views.HomePage.xaml", "Views/HomePage.xaml", null)]
 
-namespace PhoneManagement.Views {
-    
-    
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\HomePage.xaml")]
-    public partial class HomePage : global::Xamarin.Forms.MasterDetailPage {
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(HomePage));
-        }
-    }
-}

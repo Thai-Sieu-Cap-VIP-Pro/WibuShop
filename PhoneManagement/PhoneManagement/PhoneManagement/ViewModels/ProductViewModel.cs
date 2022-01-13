@@ -24,7 +24,7 @@ namespace PhoneManagement.ViewModels
         ObservableCollection<Product> _AllProducts;
         ObservableCollection<Product> _AllProducts1;
         ObservableCollection<Product> _AllProducts2;
-        public Product PRODUCT
+    public Product PRODUCT
         {
             get { return product; }
             set { 
@@ -120,15 +120,6 @@ namespace PhoneManagement.ViewModels
             }
         }
 
-        void CategoryListInit()
-        {
-            LISTCATE = new ObservableCollection<Category>();
-            LISTCATE.Add(new Category { CategoryName = "Iphone", CategoryImage = "https://rubee.com.vn/admin/webroot/upload/image//images/tin-tuc/logo-iphone-2.jpg" });
-            LISTCATE.Add(new Category { CategoryName = "Oppo", CategoryImage = "https://cdn.tgdd.vn/Files/2019/03/12/1154295/oppo-logo-old_600x277.jpg" });
-            LISTCATE.Add(new Category { CategoryName = "Iphone", CategoryImage = "https://rubee.com.vn/admin/webroot/upload/image//images/tin-tuc/logo-iphone-2.jpg" });
-            LISTCATE.Add(new Category { CategoryName = "Iphone", CategoryImage = "https://rubee.com.vn/admin/webroot/upload/image//images/tin-tuc/logo-iphone-2.jpg" });
-        }
-
         public ICommand ShowCategoryProductCommand { get; set; }
 
         async void ShowCategoryProduct(object CategoryID)
@@ -179,11 +170,9 @@ namespace PhoneManagement.ViewModels
         public ProductViewModel()
         {
             GetProduct();
-            //AllProducts = new ObservableCollection<Product>();
             AllProducts1 = new ObservableCollection<Product>();
             AllProducts2 = new ObservableCollection<Product>();
             LISTCATE = new ObservableCollection<Category>();
-            CategoryListInit();
             GetAllProducts();
             //AddToCart = new Command<string>(AddToCartFunc);
             ShowCategoryProductCommand = new Command(ShowCategoryProduct);

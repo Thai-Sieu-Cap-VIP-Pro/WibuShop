@@ -16,42 +16,24 @@
                 <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:FontAwesomeIcons.Heart}" Color="Red"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-        <ToolbarItem Order="Primary" x:Name="CartShoppingIcon" Clicked="CartShoppingIcon_Clicked">
+        <ToolbarItem Order="Primary" x:Name="CartShoppingIcon" >
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:FontAwesomeIcons.ShoppingCart}" Color="WhiteSmoke"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="0">
-
-                <!--<CarouselView x:Name="banner">
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout>
-                                <Frame HasShadow="True"
-                                       BorderColor="DarkGray"
-                                       CornerRadius="5"
-                                       Margin="20"
-                                       HeightRequest="300"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="CenterAndExpand">
-                                    <Image Source="{Binding imageList}"/>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>-->
                 <Image Source="{Binding ProductImg}" Aspect="AspectFill" x:Name="image"/>
                 <StackLayout Padding="20, 20, 20, 20"  BackgroundColor="White">
                     <Label Text="{Binding ProductName}" FontSize="Medium" TextColor="Black" FontAttributes="Bold" x:Name="name" />
                     <StackLayout Orientation="Horizontal">
                         <Label Text="{Binding ProductPrice}" FontSize="Medium" TextColor="Red" FontAttributes="Bold" 
                            HorizontalOptions="StartAndExpand" VerticalOptions="Center" x:Name="price" />
-                        <Button Text="Thêm vào giỏ hàng" FontAttributes="Bold" TextColor="Red" BorderColor="Red" 
+                            <Button Text="Thêm vào giỏ hàng" FontAttributes="Bold" TextColor="Red" BorderColor="Red" 
                             HorizontalOptions="EndAndExpand" VerticalOptions="Center" BackgroundColor="White" BorderWidth="1" CornerRadius="20" Command="{Binding AddToCart}" CommandParameter="{x:Reference addBtn}" x:Name="addBtn"/>
-                    </StackLayout>
+                        </StackLayout>
                     <StackLayout>
                         <Label Text="Mô tả" FontSize="Medium" TextColor="Black" FontAttributes="Bold" />
                         <Label>

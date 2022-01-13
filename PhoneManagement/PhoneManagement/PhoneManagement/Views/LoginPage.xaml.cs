@@ -16,7 +16,6 @@ namespace PhoneManagement.Views
         {
             InitializeComponent();
         }
-
         private void loginBtn_Clicked(object sender, EventArgs e)
         {
             string[] arr = new string[] { TK.Text, MK.Text };

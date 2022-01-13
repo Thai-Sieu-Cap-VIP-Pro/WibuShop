@@ -1,4 +1,6 @@
-﻿using System;
+
+﻿//using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,15 @@ namespace PhoneManagement.Views
         public ProfilePage()
         {
             InitializeComponent();
+        }
+        private void btnEditProfile_Clicked(object sender, EventArgs e)
+        {
+            //PopupNavigation.Instance.PushAsync(new EditProfilePopup());
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new HistoryOrderPage());
         }
     }
 }

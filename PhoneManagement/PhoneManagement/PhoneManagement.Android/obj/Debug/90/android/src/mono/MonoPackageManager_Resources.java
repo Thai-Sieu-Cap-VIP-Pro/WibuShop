@@ -6,6 +6,10 @@ public class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Newtonsoft.Json.dll",
 		"PhoneManagement.dll",
+<<<<<<< HEAD
+=======
+		"Rg.Plugins.Popup.dll",
+>>>>>>> fa20b6249680db224123a162da5d311d7717b4ed
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
