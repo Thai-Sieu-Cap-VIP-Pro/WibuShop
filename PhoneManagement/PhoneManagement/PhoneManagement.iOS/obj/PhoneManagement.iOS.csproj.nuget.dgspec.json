@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj": {}
+    "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj": {
+    "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
         "projectName": "PhoneManagement.iOS",
-        "projectPath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
+        "projectPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
         "packagesPath": "C:\\Users\\THAI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\obj\\",
+        "outputPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj": {
-                "projectPath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj"
+              "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj": {
+                "projectPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj"
               }
             }
           }
@@ -73,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj": {
+    "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj",
+        "projectUniqueName": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj",
         "projectName": "PhoneManagement",
-        "projectPath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj",
+        "projectPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj",
         "packagesPath": "C:\\Users\\THAI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\obj\\",
+        "outputPath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

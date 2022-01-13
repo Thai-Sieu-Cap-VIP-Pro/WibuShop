@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AQWCAHRb56xv+byDlDm/GXD+BBRB5pM6s7ogd0fgKI4R6sncuMBatE+HNKc6YhgN/4ykxlZ00/HFdiBV5PEXVw==",
+  "dgSpecHash": "X+RI6Qjq/jlRFn98k1zq7ODAJ8Q3LyZU9CAJcY3E7lo4Qz62y7L36SKaDuoS1EQie0v/ngFF6dkP0/fdyhl/3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
+  "projectFilePath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement.iOS\\PhoneManagement.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\THAI\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\THAI\\.nuget\\packages\\rg.plugins.popup\\2.0.0.14\\rg.plugins.popup.2.0.0.14.nupkg.sha512",

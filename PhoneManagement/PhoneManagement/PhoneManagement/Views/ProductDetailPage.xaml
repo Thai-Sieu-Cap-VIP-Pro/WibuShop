@@ -6,22 +6,23 @@
              xmlns:viewmodel="clr-namespace:PhoneManagement.ViewModels"
              xmlns:fa="clr-namespace:FontAwesome"
              mc:Ignorable="d"
-             x:Class="PhoneManagement.Views.ProductDetailPage">
+             x:Class="PhoneManagement.Views.ProductDetailPage"
+             Title="Chi tiết sản phẩm">
     <ContentPage.BindingContext>
         <viewmodel:ProductViewModel />
     </ContentPage.BindingContext>
-    <!--<ContentPage.ToolbarItems>
+    <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary">
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:FontAwesomeIcons.Heart}" Color="Red"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-        <ToolbarItem Order="Primary" x:Name="CartShoppingIcon" >
+        <ToolbarItem Order="Primary" x:Name="CartShoppingIcon" Clicked="CartShoppingIcon_Clicked">
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="FASolid" Glyph="{x:Static fa:FontAwesomeIcons.ShoppingCart}" Color="WhiteSmoke"/>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-    </ContentPage.ToolbarItems>-->
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="0">
@@ -43,14 +44,42 @@
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>-->
-                <Image Source="samsung.jpg" Aspect="AspectFill"/>
+                <StackLayout Margin="0,20,0,0">
+                    <Image Source="{Binding ProductImg}" HeightRequest="250" WidthRequest="100" x:Name="image"/> 
+                </StackLayout>
+             
                 <StackLayout Padding="20, 20, 20, 20"  BackgroundColor="White">
-                    <Label Text="{Binding PRODUCT.ProductName}" FontSize="Medium" TextColor="Black" FontAttributes="Bold" />
+                    <Label Text="{Binding ProductName}" FontSize="Medium" TextColor="Black" FontAttributes="Bold" x:Name="name" />
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding PRODUCT.ProductPrice}" FontSize="Medium" TextColor="Red" FontAttributes="Bold" 
-                           HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-                        <Button Text="Đặt hàng" FontAttributes="Bold" TextColor="Red" BorderColor="Red" 
-                            HorizontalOptions="EndAndExpand" VerticalOptions="Center" BackgroundColor="White" BorderWidth="1" CornerRadius="20"/>
+                        <Label Text="{Binding ProductPrice, StringFormat='{0:#,0.#0} đ'}" FontSize="Medium" TextColor="Red" FontAttributes="Bold" 
+                           HorizontalOptions="StartAndExpand" VerticalOptions="Center" x:Name="price" />
+                        <Button Text="Thêm vào giỏ hàng" FontAttributes="Bold" TextColor="Red" BorderColor="Red" 
+                            HorizontalOptions="EndAndExpand" VerticalOptions="Center" BackgroundColor="White" BorderWidth="1" CornerRadius="20" Command="{Binding AddToCart}" CommandParameter="{x:Reference addBtn}" x:Name="addBtn"/>
+                    </StackLayout>
+                    <Label Text="Bộ nhớ" TextColor="Black"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout WidthRequest="70" HeightRequest="50" BackgroundColor="#d6d6d6">
+                            <Label Text="6-64GB" HorizontalOptions="Center" Margin="0,15,0,0"></Label>
+                        </StackLayout>
+                        <StackLayout WidthRequest="70" HeightRequest="50" BackgroundColor="#f0f0f0">
+                            <Label Text="8-128GB" HorizontalOptions="Center" Margin="0,15,0,0"></Label>
+                        </StackLayout>
+                        <StackLayout WidthRequest="70" HeightRequest="50" BackgroundColor="#f0f0f0">
+                            <Label Text="8-256GB" HorizontalOptions="Center" Margin="0,15,0,0"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Màu sắc" TextColor="Black"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        
+                        <StackLayout WidthRequest="30" HeightRequest="30" BackgroundColor="Black">
+                         
+                        </StackLayout>
+                        <StackLayout WidthRequest="30" HeightRequest="30" BackgroundColor="#215777">
+                          
+                        </StackLayout>
+                        <StackLayout WidthRequest="30" HeightRequest="30" BackgroundColor="red">
+                          
+                        </StackLayout>
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Mô tả" FontSize="Medium" TextColor="Black" FontAttributes="Bold" />

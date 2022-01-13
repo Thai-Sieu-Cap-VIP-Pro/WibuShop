@@ -4,33 +4,67 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Text;
+using System.Windows.Input;
 using Newtonsoft.Json;
 using PhoneManagement.Models;
+using PhoneManagement.Views;
+using Xamarin.Forms;
 
 namespace PhoneManagement.ViewModels
 {
-    public class ProductViewModel:INotifyPropertyChanged
+    public class ProductViewModel : INotifyPropertyChanged
     {
-        Product product;
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    public Product PRODUCT
+        Product product;
+        ObservableCollection<Product> _AllProducts;
+        ObservableCollection<Product> _AllProducts1;
+        ObservableCollection<Product> _AllProducts2;
+        public Product PRODUCT
         {
             get { return product; }
-            set { 
+            set
+            {
                 product = value;
                 OnPropertyChanged("PRODUCT");
+            }
+        }
+        public ObservableCollection<Product> AllProducts
+        {
+            get { return _AllProducts; }
+            set
+            {
+                _AllProducts = value;
+                OnPropertyChanged("AllProducts");
+            }
+        }
+        public ObservableCollection<Product> AllProducts1
+        {
+            get { return _AllProducts1; }
+            set
+            {
+                _AllProducts1 = value;
+                OnPropertyChanged("AllProducts1");
+            }
+        }
+        public ObservableCollection<Product> AllProducts2
+        {
+            get { return _AllProducts2; }
+            set
+            {
+                _AllProducts2 = value;
+                OnPropertyChanged("AllProducts2");
             }
         }
 
         async void GetProduct()
         {
             HttpClient http = new HttpClient();
-            var list = await http.GetStringAsync("http://192.168.0.106/webapidemo/api/ProductController/GetProductWithID?id=1");
+            var list = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/ProductController/GetProductWithID?id=1");
             var listConvert = JsonConvert.DeserializeObject<List<Product>>(list);
             PRODUCT = new Product
             {
@@ -44,10 +78,100 @@ namespace PhoneManagement.ViewModels
             };
 
         }
+        public ICommand AddToCart { get; private set; }
+        async void AddToCartFunc(string pID)
+        {
+            HttpClient http = new HttpClient();
+            var oke = await http.GetStringAsync("http://192.168.0.106/webapidemo/api/CartController/AddToCart?accountID=1" + "&pID=" + pID);
+            //bool succeed = false;
+            //Boolean.TryParse(oke, out succeed);
+            //if (succeed)
+            //{
+
+            //}
+            await Application.Current.MainPage.DisplayAlert("Thong bao", "Them san pham vao gio hang thanh cong", "OK");
+        }
+
+        async void GetAllProducts()
+        {
+            HttpClient http = new HttpClient();
+            var data = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/ProductController/GetAllProducts");
+            var allProducts = JsonConvert.DeserializeObject<List<Product>>(data);
+            AllProducts = new ObservableCollection<Product>();
+            AllProducts1 = new ObservableCollection<Product>();
+            AllProducts2 = new ObservableCollection<Product>();
+            for (int i = 0; i < allProducts.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    AllProducts1.Add(allProducts[i]);
+                }
+                else
+                {
+                    AllProducts2.Add(allProducts[i]);
+                }
+            }
+        }
+      
+     
+
+        public ICommand ShowCategoryProductCommand { get; set; }
+
+        async void ShowCategoryProduct(object CategoryID)
+        {
+            HttpClient http = new HttpClient();
+            var data = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/ProductController/GetProductByCategoryID?cID=" + CategoryID.ToString());
+            var allProducts = JsonConvert.DeserializeObject<List<Product>>(data);
+            AllProducts1 = new ObservableCollection<Product>();
+            AllProducts2 = new ObservableCollection<Product>();
+            //AllProducts1.Clear();
+            //AllProducts2.Clear();
+            for (int i = 0; i < allProducts.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    AllProducts1.Add(allProducts[i]);
+                }
+                else
+                {
+                    AllProducts2.Add(allProducts[i]);
+                }
+            }
+        }
+        public ICommand SearchProductCommand { get; set; }
+
+        async void SearchProduct(object ProductName)
+        {
+            HttpClient http = new HttpClient();
+            var data = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/ProductController/SearchProduct?keyword=" + ProductName.ToString());
+            var allProducts = JsonConvert.DeserializeObject<List<Product>>(data);
+            AllProducts1 = new ObservableCollection<Product>();
+            AllProducts2 = new ObservableCollection<Product>();
+            //AllProducts1.Clear();
+            //AllProducts2.Clear();
+            for (int i = 0; i < allProducts.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    AllProducts1.Add(allProducts[i]);
+                }
+                else
+                {
+                    AllProducts2.Add(allProducts[i]);
+                }
+            }
+        }
+
         public ProductViewModel()
         {
             GetProduct();
-    
+            //AllProducts = new ObservableCollection<Product>();
+            AllProducts1 = new ObservableCollection<Product>();
+            AllProducts2 = new ObservableCollection<Product>();
+            GetAllProducts();
+            //AddToCart = new Command<string>(AddToCartFunc);
+            ShowCategoryProductCommand = new Command(ShowCategoryProduct);
+            SearchProductCommand = new Command(SearchProduct);
         }
     }
 }

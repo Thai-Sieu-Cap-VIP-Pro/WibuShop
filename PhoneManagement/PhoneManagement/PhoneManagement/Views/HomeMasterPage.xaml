@@ -7,9 +7,13 @@
              x:Class="PhoneManagement.Views.HomeMasterPage"
              Title="Master">
     <ContentPage.Content>
-        <!--<StackLayout>
-            <Button x:Name="loginBtn" Clicked="loginBtn_Clicked" Text="Login" BackgroundColor="White" />
-            <Button x:Name="registerBtn" Clicked="registerBtn_Clicked" Text="Login" BackgroundColor="White" />
-        </StackLayout>-->
+        <StackLayout>
+            <StackLayout Margin="0,100,0,30">
+                <Image HeightRequest="100" Source="https://photos.google.com/photo/AF1QipPQb8Fz1_XfpCDNa_YL8dXSPjRlBJKxlyhHm1wK" />
+            </StackLayout>
+            <Button x:Name="Profile" Text="Thông tin cá nhân" BackgroundColor="Transparent" Clicked="Profile_Clicked" />
+            <Button x:Name="loginBtn" Clicked="loginBtn_Clicked" Text="Login" BackgroundColor="Transparent" />
+            <Button x:Name="registerBtn" Clicked="registerBtn_Clicked" Text="Register" BackgroundColor="Transparent" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

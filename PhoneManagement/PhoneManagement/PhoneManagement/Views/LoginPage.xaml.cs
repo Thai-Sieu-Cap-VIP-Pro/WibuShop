@@ -16,5 +16,16 @@ namespace PhoneManagement.Views
         {
             InitializeComponent();
         }
+
+        private void loginBtn_Clicked(object sender, EventArgs e)
+        {
+            string[] arr = new string[] { TK.Text, MK.Text };
+            loginBtn.CommandParameter = arr;
+        }
+
+        private void registerBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
+        }
     }
 }

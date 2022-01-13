@@ -11,7 +11,7 @@ namespace PhoneManagement
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.ProfilePage());
+            MainPage = new NavigationPage(new Views.HomePage());
         }
 
         protected override void OnStart()
@@ -26,5 +26,6 @@ namespace PhoneManagement
         {
         }
         public static MasterDetailPage MasterDet { get; set; }
+        public static string loginID;
     }
 }

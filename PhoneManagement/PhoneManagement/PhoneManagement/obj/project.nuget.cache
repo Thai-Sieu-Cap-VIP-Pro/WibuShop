@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0C2DKFVSsTeOn6OPk+t6m3d2cFLeCYPxBKwDDBHPLz5MkbiqOpSMUKcOss+B5Ww2011GXHByhTzbNX6L+Jdhug==",
+  "dgSpecHash": "dC/wGWTvn0GkJ42rSFtyxk1Wjv8njB1rSTcthHDgTwLZUYnPBa9iUbZvNQwA3m+e5hZpDfQ0V5VVZ/e2qsC+1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\THAI\\Desktop\\Mobile\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj",
+  "projectFilePath": "C:\\Users\\THAI\\Desktop\\mobile2\\WibuShop\\PhoneManagement\\PhoneManagement\\PhoneManagement\\PhoneManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\THAI\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\THAI\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
