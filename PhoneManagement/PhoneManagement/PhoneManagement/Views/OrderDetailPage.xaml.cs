@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -20,13 +21,18 @@ namespace PhoneManagement.Views
         {
             InitializeComponent();
         }
-        public OrderDetailPage(ObservableCollection<OrderProductDetailModel> x, OrderModel y)
+        public OrderDetailPage(ObservableCollection<OrderProductDetailModel> x, OrderModel y, ShippingModel b)
         {
             InitializeComponent();
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.FromHex("#F78700");
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            string a = double.Parse(y.ORDERTOTAL.ToString()).ToString("#,###", cul.NumberFormat);
             lstdetail.ItemsSource = x;
             lblnote.Text = y.ORDERNOTE;
-            lbltongtien.Text = y.ORDERTOTAL.ToString();
+            lblname.Text = b.SHIPPINGNAME;
+            lbladdress.Text = b.SHIPPINGADDRESS;
+            lblphone.Text = b.SHIPPINGPHONE;
+            lbltongtien.Text = a + "đ";
 
         }
     }

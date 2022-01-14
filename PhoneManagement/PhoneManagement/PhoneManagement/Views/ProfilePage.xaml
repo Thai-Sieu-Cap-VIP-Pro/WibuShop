@@ -5,18 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodel="clr-namespace:PhoneManagement.ViewModels"
              xmlns:fa="clr-namespace:FontAwesome"
-             NavigationPage.HasNavigationBar="False"
+               NavigationPage.HasBackButton="False"
              mc:Ignorable="d"
              x:Class="PhoneManagement.Views.ProfilePage" >
     <ContentPage.BindingContext>
         <viewmodel:ProfileViewModel></viewmodel:ProfileViewModel>
     </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Button HorizontalOptions="StartAndExpand" WidthRequest="120" Padding="0" FontSize="Medium" BackgroundColor="Transparent" TextColor="White" Text="Trang chủ" x:Name="btnhome" Clicked="btnhome_Clicked"></Button>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
             <Frame HeightRequest="120" BackgroundColor="DarkOrange">
                 <StackLayout Orientation="Horizontal">
                     <Frame WidthRequest="80" HeightRequest="100" CornerRadius="100" Margin="0,0,20,0">
-                        <Image Source="default_avatar.png"></Image>
+                        <Image Source="http://www.wjbu-project.somee.com/Images/user.png"></Image>
                     </Frame>
                     <StackLayout VerticalOptions="Center">
                         <Label Text="{Binding Profile.ACCOUNTNAME, Mode=TwoWay}" FontSize="24" TextColor="White" ></Label>
@@ -44,7 +49,7 @@
                 <Label FontFamily="FASolid" Text="&#xf022;" FontSize="20" TextColor="DarkOrange"  Margin="0,15,10,0"></Label>
                 <Button Text="Xem lịch sử đơn hàng" TextColor="Black" BackgroundColor="Transparent" VerticalOptions="Center" Padding="0" FontAttributes="None" Clicked="Button_Clicked"></Button>
             </StackLayout>
-            <Button x:Name="btnLogout" Text="Đăng xuất" BackgroundColor="DarkOrange" TextColor="White" Padding="50,0,50,0" HorizontalOptions="CenterAndExpand"></Button>
+            <Button x:Name="btnLogout" Text="Đăng xuất" Clicked="btnLogout_Clicked"  BackgroundColor="DarkOrange" TextColor="White" Padding="50,0,50,0" HorizontalOptions="CenterAndExpand"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

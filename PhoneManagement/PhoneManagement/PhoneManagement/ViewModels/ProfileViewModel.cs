@@ -34,7 +34,7 @@ namespace PhoneManagement.ViewModels
         async void GetProfileByID()
         {
             HttpClient http = new HttpClient();
-            var chuoi = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/TestController/GetAccountWithID?id=1");
+            var chuoi = await http.GetStringAsync("http://www.wjbu-project.somee.com/api/TestController/GetAccountWithID?id=" + App.loginID);
             var dsPF = JsonConvert.DeserializeObject<List<ProfileModel>>(chuoi);
             for (int i = 0; i < dsPF.Count; i++)
             {
@@ -51,11 +51,8 @@ namespace PhoneManagement.ViewModels
 
             string json = JsonConvert.SerializeObject(Profile);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
             var chuoi = await http.PutAsync("http://www.wjbu-project.somee.com/api/CartController/UpdateProfile", content);
-
-            await Application.Current.MainPage.Navigation.PopPopupAsync();
-           // await Application.Current.MainPage.Navigation.PushAsync(new ProfilePage());
+            await Application.Current.MainPage.Navigation.PushAsync(new ProfilePage());
         }
      
         public ProfileViewModel()

@@ -15,6 +15,16 @@ namespace PhoneManagement.Views
         public HomeMasterPage()
         {
             InitializeComponent();
+            if (App.loginID != "")
+            {
+
+                loginBtn.Text = "";
+                registerBtn.Text = "";
+            }    
+            else
+            {
+                Profile.Text = "";
+            }    
         }
         private async void loginBtn_Clicked(object sender, EventArgs e)
         {

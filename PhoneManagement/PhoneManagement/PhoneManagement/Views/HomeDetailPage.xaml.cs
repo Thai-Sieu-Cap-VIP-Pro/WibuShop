@@ -28,5 +28,10 @@ namespace PhoneManagement.Views
             var details = e.Item as Product;
             Navigation.PushAsync(new ProductDetailPage(details));
         }
+
+        private void btnCart_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CartPage());
+        }
     }
 }

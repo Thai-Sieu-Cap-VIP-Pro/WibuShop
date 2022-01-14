@@ -27,5 +27,16 @@ namespace PhoneManagement.Views
         {
             Navigation.PushAsync(new HistoryOrderPage());
         }
+
+        private void btnLogout_Clicked(object sender, EventArgs e)
+        {
+            App.loginID = "";
+            Navigation.PushAsync(new Views.HomePage());
+        }
+
+        private void btnhome_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.HomePage());
+        }
     }
 }

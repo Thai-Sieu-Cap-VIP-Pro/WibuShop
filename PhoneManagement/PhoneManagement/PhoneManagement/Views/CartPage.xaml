@@ -13,7 +13,6 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-
             <ListView x:Name="ProductList" HasUnevenRows="True" ItemsSource="{Binding CARTPRODUCTS, Mode=TwoWay}" Margin="15,0,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -35,9 +34,9 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout Orientation="Horizontal">
-                <Label FontFamily="FASolid" Text="&#xf290;" TextColor="OrangeRed" FontSize="Large" Margin="20,0,0,0" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-                <Label FontAttributes="Bold" Text="{Binding CART.CartTotal, StringFormat='Thành tiền: {0:#,0.#0}đ'}" FontSize="Medium" VerticalOptions="Center" TextColor="OrangeRed"/>
-                <Button Text="Thanh Toán" BackgroundColor="OrangeRed" TextColor="White" FontSize="Medium" VerticalOptions="Center" Clicked="Button_Clicked_1"/>
+                <Label FontFamily="FASolid" Text="&#xf290;" TextColor="OrangeRed" FontSize="Large" Margin="20,0,0,0" FontAttributes="Bold" VerticalOptions="Center" />
+                <Label FontAttributes="Bold" Text="{Binding CART.CartTotal, StringFormat='Thành tiền: {0:#,0.#0}đ'}" FontSize="Medium" VerticalOptions="Center" TextColor="OrangeRed" HorizontalOptions="StartAndExpand"/>
+                <Button Text="Thanh Toán" x:Name="btnThanhtoan" BackgroundColor="OrangeRed" TextColor="White" FontSize="Medium" VerticalOptions="Center" Clicked="Button_Clicked_1"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

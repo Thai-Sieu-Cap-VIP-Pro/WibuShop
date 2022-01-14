@@ -22,5 +22,10 @@ namespace PhoneManagement.Views
         {
             Navigation.PopPopupAsync();
         }
+
+        private void btnclose_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopPopupAsync();
+        }
     }
 }

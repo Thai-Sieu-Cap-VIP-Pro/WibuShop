@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Margin="0,100,0,30">
-                <Image HeightRequest="100" Source="https://photos.google.com/photo/AF1QipPQb8Fz1_XfpCDNa_YL8dXSPjRlBJKxlyhHm1wK" />
+                <Image HeightRequest="100" Source="http://www.wjbu-project.somee.com/Images/logo.png" />
             </StackLayout>
             <Button x:Name="Profile" Text="Thông tin cá nhân" BackgroundColor="Transparent" Clicked="Profile_Clicked" />
             <Button x:Name="loginBtn" Clicked="loginBtn_Clicked" Text="Login" BackgroundColor="Transparent" />

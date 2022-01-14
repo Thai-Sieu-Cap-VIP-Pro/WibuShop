@@ -22,7 +22,7 @@
                                 <Label Text="{Binding OrderStatus}" HorizontalOptions="EndAndExpand" TextColor="Red" ></Label>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding ProductImg}" WidthRequest="100"></Image>
+                                <Image Source="{Binding ProductImg}" WidthRequest="100" HeightRequest="100"></Image>
                                 <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Margin="0,0,20,0">
                                     <Label Text="{Binding ProductName}" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
                                     <Label Text="{Binding ProductQuanity,StringFormat='x{0}'}" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>

@@ -26,6 +26,6 @@ namespace PhoneManagement
         {
         }
         public static MasterDetailPage MasterDet { get; set; }
-        public static string loginID;
+        public static string loginID= "";
     }
 }

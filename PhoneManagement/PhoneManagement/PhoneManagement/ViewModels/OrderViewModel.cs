@@ -63,13 +63,23 @@ namespace PhoneManagement.ViewModels
             }
         }
 
+        private ShippingModel shipping;
+        public ShippingModel SHIPPING
+        {
+            get { return shipping; }
+            set
+            {
+                shipping = value;
+                OnPropertyChanged("SHIPPING");
+            }
+        }
 
 
         //các hàm xử lý
         async void GetOrderByAccountID()
         {
             HttpClient http = new HttpClient();
-            var chuoi = await http.GetStringAsync("http://wjbu-project.somee.com/api/OrderController/GetListOrder?accountID=1");
+            var chuoi = await http.GetStringAsync("http://wjbu-project.somee.com/api/OrderController/GetListOrder?accountID=" + App.loginID);
             var dsOrder = JsonConvert.DeserializeObject<List<OrderModel>>(chuoi);
             AllOrdersProduct = new ObservableCollection<OrderProductModel>();
             for (int i = 0; i < dsOrder.Count; i++)
@@ -79,7 +89,7 @@ namespace PhoneManagement.ViewModels
                 var chuoi2 = await http.GetStringAsync("http://wjbu-project.somee.com/api/ProductController/GetProductWithID?id=" + dsOrderDetail[0].PRODUCTID.ToString());
                 var dsProduct = JsonConvert.DeserializeObject<List<Product>>(chuoi2);
                 string status = "";
-                if (dsOrder[i].ORDERSTATUS.ToString() == "0")
+                if (dsOrder[i].ORDERSTATUS.ToString() == "1")
                 {
                     status = "Đang xử lý";
                 }
@@ -108,11 +118,31 @@ namespace PhoneManagement.ViewModels
 
         async void ShowDetailOrderFunction(object x)
         {
+            string shippingid = "";
             HttpClient http = new HttpClient();
-            var chuoi5 = await http.GetStringAsync("http://wjbu-project.somee.com/api/OrderController/GetListOrder?accountID=1");
+            var chuoi5 = await http.GetStringAsync("http://wjbu-project.somee.com/api/OrderController/GetListOrder?accountID=" + App.loginID);
             var dsOrder = JsonConvert.DeserializeObject<List<OrderModel>>(chuoi5);
-            Order = dsOrder[0];
-            
+        
+            for(int m = 0; m < dsOrder.Count; m ++)
+            {
+                if (x.ToString()==dsOrder[m].ORDERID.ToString())
+                {
+                    Order = dsOrder[m];
+                    shippingid = dsOrder[m].SHIPPINGID.ToString();
+                }    
+            }
+
+            var chuoi6 = await http.GetStringAsync("http://wjbu-project.somee.com/api/ShippingController/GetListShippingWithID?shippingID=" + shippingid);
+            var dsShipping = JsonConvert.DeserializeObject<List<ShippingModel>>(chuoi6);
+            SHIPPING = new ShippingModel
+            {
+                SHIPPINGID = dsShipping[0].SHIPPINGID,
+                SHIPPINGADDRESS = dsShipping[0].SHIPPINGADDRESS,
+                SHIPPINGNAME = dsShipping[0].SHIPPINGNAME,
+                SHIPPINGPHONE = dsShipping[0].SHIPPINGPHONE,
+                ACCOUNTID = dsShipping[0].ACCOUNTID,
+
+            };
             var chuoi = await http.GetStringAsync("http://wjbu-project.somee.com/api/OrderController/GetListOrderDetail?orderID=" + x.ToString());
             var dsOrderDetail = JsonConvert.DeserializeObject<List<OrderDetailModel>>(chuoi);
             AllDetailOrders = new ObservableCollection<OrderProductDetailModel>();
@@ -121,7 +151,7 @@ namespace PhoneManagement.ViewModels
                 var chuoi2 = await http.GetStringAsync("http://wjbu-project.somee.com/api/ProductController/GetProductWithID?id=" + dsOrderDetail[i].PRODUCTID.ToString());
                 var dsProduct = JsonConvert.DeserializeObject<List<Product>>(chuoi2);
                 var category = "";
-                switch(dsProduct[0].CategoryID.ToString())
+                switch (dsProduct[0].CategoryID.ToString())
                 {
                     case "1":
                         category = "Samsung";
@@ -136,7 +166,7 @@ namespace PhoneManagement.ViewModels
                         category = "Oppo";
                         break;
                 }
-               
+
                 OrderProductDetailModel tempt = new OrderProductDetailModel
                 {
                     ProductID = dsOrderDetail[i].PRODUCTID,
@@ -149,13 +179,14 @@ namespace PhoneManagement.ViewModels
                 };
                 AllDetailOrders.Add(tempt);
             }
-            await Application.Current.MainPage.Navigation.PushAsync(new Views.OrderDetailPage(AllDetailOrders, Order));
+            await Application.Current.MainPage.Navigation.PushAsync(new Views.OrderDetailPage(AllDetailOrders, Order, SHIPPING));
         }
 
 
         //constructor
         public OrderViewModel()
         {
+            SHIPPING = new ShippingModel();
             AllOrdersProduct = new ObservableCollection<OrderProductModel>();
             GetOrderByAccountID();
             ShowDetailOrderCommand = new Command(ShowDetailOrderFunction);

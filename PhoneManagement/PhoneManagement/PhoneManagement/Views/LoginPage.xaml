@@ -20,52 +20,27 @@
                 </StackLayout>
                 <StackLayout Padding="0" Margin="10,100,10,0" HorizontalOptions="FillAndExpand">
                     <Frame BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0">
-
-
-
                         <StackLayout>
-
-
-
-
                             <StackLayout Margin="10">
                                 <Label Text="ĐĂNG NHẬP" FontSize="Large" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
                             </StackLayout>
-
-
-
                             <StackLayout Padding="0" Margin="15,10">
-
-
-
                                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                         </Frame>
-
-
-
                                         <Entry Placeholder="Email" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" x:Name="TK" Keyboard="Text"/>
                                     </StackLayout>
                                 </Frame>
-
-
-
                                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                         </Frame>
-
-
-
                                         <Entry Placeholder="Mật khẩu" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" x:Name="MK" Keyboard="Text"/>
                                     </StackLayout>
                                 </Frame>
-
-
-
                                 <StackLayout Orientation="Horizontal">
                                     <CheckBox IsChecked="False" Color="HotPink" />
                                     <Label Text="Lưu mật khẩu" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />

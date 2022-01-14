@@ -7,7 +7,9 @@
              x:Class="PhoneManagement.Views.OrderDetailPage"
               xmlns:viewmodel="clr-namespace:PhoneManagement.ViewModels"
              Title="Chi tiết đơn hàng">
-  
+    <ContentPage.BindingContext>
+        <viewmodel:OrderViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout >
             <StackLayout Padding="20,10,0,10" BackgroundColor="White" >
@@ -15,16 +17,16 @@
                     <StackLayout Margin="20,0,0,0">
                     <StackLayout Orientation="Horizontal" >
                         <Label FontFamily="FASolid" Text="&#xf007;" TextColor="DarkOrange" Margin="0,3,10,0" ></Label>
-                        <Label Text="Ngô Gia Thái" TextColor="Black"></Label>
+                        <Label Text="" x:Name="lblname" TextColor="Black"></Label>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
                         <Label FontFamily="FASolid" Text="&#xf095;" TextColor="DarkOrange" Margin="0,3,10,0"></Label>
-                        <Label Text="(+84)3485959848"  TextColor="Black"></Label>
+                        <Label Text="" x:Name="lblphone"  TextColor="Black"></Label>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" HeightRequest="70">
                         <Label FontFamily="FASolid" Text="&#xf3c5;" TextColor="DarkOrange" Margin="0,3,10,0"></Label>
-                        <Label Text="Thông Lương Trung, xã Mỹ chánh, huyện Phù Mỹ, tỉnh Bình Định" Margin="0,0,10,0"  TextColor="Black"></Label>
+                        <Label Text="" Margin="0,0,10,0"  x:Name="lbladdress"  TextColor="Black"></Label>
                         </StackLayout>
                     </StackLayout>
                 <StackLayout Margin="0,0,0,10" Orientation="Horizontal">
@@ -47,8 +49,8 @@
                                         <Label Text="{Binding CategoryID}" TextColor="DarkOrange" FontAttributes="Bold"></Label>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding ProductImg}" WidthRequest="100"></Image>
-                                        <StackLayout Orientation="Vertical" Margin="0,0,20,0" HorizontalOptions="EndAndExpand">
+                                        <Image Source="{Binding ProductImg}" WidthRequest="100" HeightRequest="100"></Image>
+                                        <StackLayout Orientation="Vertical" Margin="0,20,20,0" HorizontalOptions="EndAndExpand">
                                             <Label Text="{Binding ProductName}" HorizontalOptions="EndAndExpand" TextColor="Black"></Label>
                                             <Label Text="{Binding ProductQuanity, StringFormat='x{0}'}" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
                                         <Label Text="{Binding ProductPrice, StringFormat='Đơn giá:  {0:#,0.#0} đ'}" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>

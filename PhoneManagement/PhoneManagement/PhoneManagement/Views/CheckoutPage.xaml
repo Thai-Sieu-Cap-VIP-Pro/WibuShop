@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Đặt hàng"
              xmlns:viewmodel="clr-namespace:PhoneManagement.ViewModels"
              x:Class="PhoneManagement.Views.CheckoutPage">
 
@@ -12,20 +13,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Picker Title="Chọn địa chỉ" ItemsSource="{Binding LISTADDRESS}" ItemDisplayBinding="{Binding SHIPPINGADDRESS}" SelectedItem="{Binding SHIPPINGID}" x:Name="picker"/>
-            <StackLayout Orientation="Horizontal" Margin="15" HorizontalOptions="Fill">
-
-                <Label FontFamily="FASolid" Text="&#xf041;" FontSize="Medium" TextColor="Blue" VerticalTextAlignment="Center">
-
-                </Label>
-                <Button Text="Them moi dia chi" FontSize="Medium" TextColor="Black" VerticalOptions="Center" BackgroundColor="Transparent"/>
-
-                <Label FontFamily="FASolid" Text="&#xf105;" FontSize="Medium" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-            <StackLayout>
-                <Label Text="Ghi chú" FontSize="Medium" />
-                <Entry Keyboard="Text" x:Name="Note"/>
-            </StackLayout>
+            <Label Text="Danh sách sản phẩm" FontSize="Medium" Margin="20,0,0,0" TextColor="DarkOrange" FontAttributes="Bold"></Label>
             <ListView x:Name="ProductList" HasUnevenRows="True" ItemsSource="{Binding CARTPRODUCTS, Mode=TwoWay}" Margin="15,0,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -34,7 +22,7 @@
                                 <Image Source="{Binding PRODUCTIMG}" HeightRequest="100" WidthRequest="100" Aspect="AspectFill" />
                                 <StackLayout>
                                     <Label FontAttributes="Bold" FontSize="Medium" TextColor="Black" Text="{Binding PRODUCTNAME}" />
-                                    <Label Text="{Binding PRODUCTQUANITY, Mode=TwoWay}" VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding PRODUCTQUANITY, Mode=TwoWay, StringFormat='Số lượng: {0}'}" VerticalOptions="CenterAndExpand" />
                                     <Label Text="{Binding PRODUCTPRICE, StringFormat='{0:#,0.#0}đ'}" TextColor="Red"  VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Medium"/>
                                 </StackLayout>
                             </StackLayout>
@@ -42,10 +30,26 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Picker Title="Chọn địa chỉ" ItemsSource="{Binding LISTADDRESS, Mode=TwoWay}" Margin="20,10,20,0" ItemDisplayBinding="{Binding SHIPPINGADDRESS, Mode=TwoWay}" SelectedItem="{Binding SHIPPINGID, Mode=TwoWay}" x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged"/>
+            <StackLayout Orientation="Horizontal" Margin="20,0,20,0" HorizontalOptions="Fill">
+
+                <Label FontFamily="FASolid" Text="&#xf041;" FontSize="Medium" TextColor="Blue" VerticalTextAlignment="Center">
+
+                </Label>
+                <Button Text="Thêm địa chỉ mới" FontSize="Medium" TextColor="Black" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="Button_Clicked_1"/>
+                <Label FontFamily="FASolid" FontSize="25" TextColor="DarkOrange" Text="&#xf055;" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+            </StackLayout >
+            <StackLayout Orientation="Horizontal" Margin="20,0,20,20">
+                <Label Text="Ghi chú" FontSize="Medium"   TextColor="Black" VerticalOptions="Center" Margin="0,0,10,0"/>
+                <Entry Keyboard="Text" x:Name="Note" WidthRequest="280"/>
+            </StackLayout>
+         
             <StackLayout Orientation="Horizontal">
-                <Label FontFamily="FASolid" Text="&#xf290;" TextColor="OrangeRed" FontSize="Large" Margin="20,0,0,0" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-                <Label FontAttributes="Bold" Text="{Binding CART.CartTotal, StringFormat='Thành tiền: {0:#,0.#0}đ'}" FontSize="Medium" VerticalOptions="Center" TextColor="OrangeRed"/>
-                <Button Text="Đặt hàng" BackgroundColor="OrangeRed" TextColor="White" FontSize="Medium" VerticalOptions="Center" Command="{Binding Checkout}" Clicked="Button_Clicked" x:Name="dathang" CommandParameter="{Binding Source={x:Reference Note}, Path=Text}"/>
+                <Label FontFamily="FASolid" Text="&#xf290;" TextColor="OrangeRed" FontSize="Large" Margin="20,0,0,0" FontAttributes="Bold" VerticalOptions="Center" />
+                <Label FontAttributes="Bold" Text="{Binding CART.CartTotal, StringFormat='Thành tiền: {0:#,0.#0}đ'}" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="OrangeRed"/>
+                <Button Text="Đặt hàng" BackgroundColor="OrangeRed" TextColor="White" FontSize="Medium" VerticalOptions="Center"   Clicked="Button_Clicked"  x:Name="dathang" Command="{Binding Checkout}" CommandParameter="{x:Reference dathang}">
+
+                </Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

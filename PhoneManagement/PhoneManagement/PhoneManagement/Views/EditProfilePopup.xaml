@@ -6,13 +6,19 @@
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              xmlns:viewmodel="clr-namespace:PhoneManagement.ViewModels"
              mc:Ignorable="d"
+          
              x:Class="PhoneManagement.Views.EditProfilePopup"
             >
     <ContentPage.BindingContext>
         <viewmodel:ProfileViewModel></viewmodel:ProfileViewModel>
     </ContentPage.BindingContext>
-    <StackLayout BackgroundColor="White" HeightRequest="400" HorizontalOptions="Center">
-        <Label Text="Chỉnh sửa thông tin cá nhân" BackgroundColor="Transparent" Margin="40,20,0,0" FontSize="20" TextColor="Black" FontAttributes="Bold"></Label>
+    <StackLayout>
+    <StackLayout BackgroundColor="White" HeightRequest="380" Margin="20,20,20,0" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Chỉnh sửa thông tin cá nhân" BackgroundColor="Transparent" Margin="40,20,0,0" TextColor="DarkOrange" FontSize="18" FontAttributes="Bold"></Label>
+                <Button FontFamily="FASolid" Padding="0,0,0,0" BackgroundColor="Transparent" FontSize="18" Margin="0,10,0,0" x:Name="btnclose" Clicked="btnclose_Clicked" TextColor="DarkOrange" Text="&#xf00d;" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+     
         <Grid Margin="10,20,10,0">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -33,7 +39,8 @@
             <Entry Text="{Binding Profile.ACCOUNTEMAIL, Mode=TwoWay}"   Grid.Row="2" Grid.Column="1"></Entry>
         </Grid>
       
-        <Button Text="Cập nhật" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0" Command="{Binding UpdateProfileCommand}" BackgroundColor="Blue" TextColor="White"></Button>
+        <Button Text="Cập nhật" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0" Command="{Binding UpdateProfileCommand}" BackgroundColor="DarkOrange" TextColor="White"></Button>
     </StackLayout>
-               
+    </StackLayout>
+
 </pages:PopupPage>
